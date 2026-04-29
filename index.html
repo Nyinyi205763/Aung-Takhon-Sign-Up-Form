@@ -254,21 +254,18 @@
   </section>
 
 <script>
-console.log("JS loaded ✅");
-
 const scriptURL = "https://script.google.com/macros/s/AKfycbxhmkGYXLAZfbgPv5riddRk0BjL9eP9AONhulylZu6xW9kCnp4VJ_9PMggYvJaVhZAQ/exec";
 
 const form = document.getElementById("contactForm");
 const successMsg = document.getElementById("successMsg");
 
-if (!form) {
-  alert("Form ID မတွေ့ပါ။ contactForm ကိုစစ်ပါ");
-}
-
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
-  alert("Submit button အလုပ်လုပ်နေပြီ ✅");
+  successMsg.style.display = "block";
+  successMsg.style.background = "#fff7e6";
+  successMsg.style.color = "#9b5c00";
+  successMsg.innerHTML = "⏳ Sending... ခဏစောင့်ပေးပါ";
 
   const data = {
     name: document.getElementById("name").value,
@@ -285,13 +282,15 @@ form.addEventListener("submit", function(e) {
     body: JSON.stringify(data)
   })
   .then(() => {
-    successMsg.style.display = "block";
+    successMsg.style.background = "#ecfff1";
+    successMsg.style.color = "#138a2e";
+    successMsg.innerHTML = "✅ Inquiry ပို့ပြီးပါပြီ။ မကြာမီ ပြန်လည်ဆက်သွယ်ပေးပါမည်။";
     form.reset();
-    alert("ပို့ပြီးပါပြီ ✅ Sheet ကိုစစ်ပါ");
   })
-  .catch((error) => {
-    console.error(error);
-    alert("ပေးပို့ခြင်းမအောင်မြင်ပါ။");
+  .catch(() => {
+    successMsg.style.background = "#fff0f0";
+    successMsg.style.color = "#b00020";
+    successMsg.innerHTML = "❌ ပေးပို့ခြင်းမအောင်မြင်ပါ။ နောက်တစ်ကြိမ်ပြန်စမ်းပါ။";
   });
 });
 </script>
