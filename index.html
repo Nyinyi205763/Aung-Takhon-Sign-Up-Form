@@ -271,20 +271,17 @@ form.addEventListener("submit", function(e) {
     message: document.getElementById("message").value
   };
 
-  fetch(scriptURL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    successMsg.style.display = "block";
-    form.reset();
-  })
-  .catch(() => {
-    alert("ပို့တာမအောင်မြင်ပါ။ နောက်တစ်ကြိမ်ပြန်စမ်းပါ။");
-  });
+ fetch(scriptURL, {
+  method: "POST",
+  mode: "no-cors",
+  body: JSON.stringify(data)
+})
+.then(() => {
+  successMsg.style.display = "block";
+  form.reset();
+})
+.catch(() => {
+  alert("ပေးပို့ခြင်းမအောင်မြင်ပါ။ကျေးဇူးပြု၍ နောက်တစ်ကြိမ်ပြန်စမ်းကြည့်ပေးပါ။");
 });
   </script>
 
