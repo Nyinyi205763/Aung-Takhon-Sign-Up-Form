@@ -271,7 +271,7 @@ form.addEventListener("submit", function(e) {
     message: document.getElementById("message").value
   };
 
- fetch(scriptURL, {
+fetch(scriptURL, {
   method: "POST",
   mode: "no-cors",
   body: JSON.stringify(data)
@@ -283,7 +283,10 @@ form.addEventListener("submit", function(e) {
 .catch(() => {
   alert("ပေးပို့ခြင်းမအောင်မြင်ပါ။ကျေးဇူးပြု၍ နောက်တစ်ကြိမ်ပြန်စမ်းကြည့်ပေးပါ။");
 });
-  </script>
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
