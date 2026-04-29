@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aung Tan Khun | Contact Form</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fffaf2, #f8fff4);
+      color: #3b1b00;
+    }
+
+    .header {
+      padding: 18px 8%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+    }
+
+    .brand h2 {
+      font-size: 26px;
+      color: #9b0000;
+    }
+
+    .brand p {
+      margin-top: 5px;
+      color: #5f6b55;
+      font-size: 15px;
+    }
+
+    .contact-section {
+      min-height: calc(100vh - 128px);
+      padding: 55px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .tag {
+      color: #138a2e;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 15px;
+    }
+
+    .contact-text h1 {
+      margin-top: 16px;
+      font-size: 48px;
+      line-height: 1.15;
+      color: #9b0000;
+    }
+
+    .contact-text p {
+      margin-top: 22px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #59645a;
+    }
+
+    .info {
+      margin-top: 28px;
+      display: grid;
+      gap: 13px;
+      font-size: 17px;
+      color: #59645a;
+    }
+
+    .info b {
+      color: #3b1b00;
+    }
+
+    .form-box {
+      background: #ffffff;
+      padding: 36px;
+      border-radius: 26px;
+      box-shadow: 0 20px 55px rgba(155,0,0,0.10);
+      border: 1px solid rgba(155,0,0,0.08);
+    }
+
+    .form-box h3 {
+      font-size: 26px;
+      margin-bottom: 22px;
+      color: #9b0000;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 17px 18px;
+      margin-bottom: 16px;
+      border: 1px solid #e3ddd4;
+      border-radius: 14px;
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+      color: #3b1b00;
+    }
+
+    textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #138a2e;
+      box-shadow: 0 0 0 3px rgba(19,138,46,0.08);
+    }
+
+    .submit-btn {
+      background: #138a2e;
+      color: #ffffff;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 4px 5px 0 #5b2100;
+      transition: 0.2s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 7px 0 #5b2100;
+    }
+
+    .success {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      background: #ecfff1;
+      color: #138a2e;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 14px 6%;
+      }
+
+      .logo {
+        width: 70px;
+        height: 70px;
+      }
+
+      .brand h2 {
+        font-size: 20px;
+      }
+
+      .contact-section {
+        grid-template-columns: 1fr;
+        padding: 34px 6%;
+      }
+
+      .contact-text h1 {
+        font-size: 34px;
+      }
+
+      .contact-text p,
+      .info {
+        font-size: 15px;
+      }
+
+      .form-box {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <img src="logo.png" alt="Aung Tan Khun Logo" class="logo">
+    <div class="brand">
+      <h2>အောင်တံခွန် စိုက်ပျိုးရေးသွင်းအားစု</h2>
+      <p>Aung Tan Khun Agricultural Supplies</p>
+    </div>
+  </header>
+
+  <section class="contact-section">
+
+    <div class="contact-text">
+      <div class="tag">CONTACT US</div>
+
+      <h1>စိုက်ပျိုးရေးသုံး ရေပိုက်နှင့် Pipe Fitting ပစ္စည်းများ</h1>
+
+      <p>
+        We provide agricultural water pipes and pipe fitting products
+        for farms, irrigation systems, and agricultural businesses.
+      </p>
+
+      <p>
+        ကိုယ်ပိုင်ထုတ်လုပ်ထားသော စိုက်ပျိုးရေးသုံးရေပိုက်များနှင့်
+        ပိုက်ဆက်ပစ္စည်းများအတွက် စုံစမ်းမေးမြန်းနိုင်ပါသည်။
+      </p>
+
+      <div class="info">
+        <div><b>Phone:</b> [Your Phone Number]</div>
+        <div><b>Email:</b> [Your Email Address]</div>
+        <div><b>Address:</b> [Your Address]</div>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <h3>Send Inquiry</h3>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Name / အမည်" required>
+
+        <input type="email" id="email" placeholder="Mail / အီးမေးလ်">
+
+        <select id="interest" required>
+          <option value="">Interest / စိတ်ဝင်စားသော ပစ္စည်းရွေးပါ</option>
+          <option value="အစက်ချရေပိုက်များ">အစက်ချရေပိုက်များ / Drip Irrigation Pipes</option>
+          <option value="ပိုက်ဆက်ပစ္စည်းများ">ပိုက်ဆက်ပစ္စည်းများ / Pipe Fitting Products</option>
+        </select>
+
+        <input type="tel" id="phone" placeholder="Contact Number / ဆက်သွယ်ရန်ဖုန်းနံပါတ်" required>
+
+        <input type="text" id="address" placeholder="Address / လိပ်စာ">
+
+        <textarea id="message" placeholder="Your Message / မေးမြန်းလိုသောအကြောင်းအရာ" required></textarea>
+
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+
+        <div class="success" id="successMsg">
+          ✅ Inquiry ပို့ပြီးပါပြီ။ မကြာမီ ပြန်လည်ဆက်သွယ်ပေးပါမည်။
+        </div>
+      </form>
+    </div>
+
+  </section>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const interest = document.getElementById("interest").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+      const message = document.getElementById("message").value;
+
+      const text =
+        `New Inquiry from Website%0A%0A` +
+        `Name: ${name}%0A` +
+        `Mail: ${email}%0A` +
+        `Interest: ${interest}%0A` +
+        `Contact Number: ${phone}%0A` +
+        `Address: ${address}%0A` +
+        `Message: ${message}`;
+
+      /* ဒီနေရာမှာ ကိုယ့် WhatsApp/Viber ဖုန်းနံပါတ်ထည့်ပါ */
+      const phoneNumber = "959000000000";
+
+      window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
+
+      successMsg.style.display = "block";
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
