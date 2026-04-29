@@ -253,14 +253,22 @@
 
   </section>
 
- <script>
+<script>
+console.log("JS loaded ✅");
+
 const scriptURL = "https://script.google.com/macros/s/AKfycbxhmkGYXLAZfbgPv5riddRk0BjL9eP9AONhulylZu6xW9kCnp4VJ_9PMggYvJaVhZAQ/exec";
 
 const form = document.getElementById("contactForm");
 const successMsg = document.getElementById("successMsg");
 
+if (!form) {
+  alert("Form ID မတွေ့ပါ။ contactForm ကိုစစ်ပါ");
+}
+
 form.addEventListener("submit", function(e) {
   e.preventDefault();
+
+  alert("Submit button အလုပ်လုပ်နေပြီ ✅");
 
   const data = {
     name: document.getElementById("name").value,
@@ -279,9 +287,11 @@ form.addEventListener("submit", function(e) {
   .then(() => {
     successMsg.style.display = "block";
     form.reset();
+    alert("ပို့ပြီးပါပြီ ✅ Sheet ကိုစစ်ပါ");
   })
-  .catch(() => {
-    alert("ပေးပို့ခြင်းမအောင်မြင်ပါ။ နောက်တစ်ကြိမ်ပြန်စမ်းပါ။");
+  .catch((error) => {
+    console.error(error);
+    alert("ပေးပို့ခြင်းမအောင်မြင်ပါ။");
   });
 });
 </script>
