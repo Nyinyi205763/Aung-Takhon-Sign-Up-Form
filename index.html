@@ -254,37 +254,7 @@
   </section>
 
   <script>
-    const form = document.getElementById("contactForm");
-    const successMsg = document.getElementById("successMsg");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const interest = document.getElementById("interest").value;
-      const phone = document.getElementById("phone").value;
-      const address = document.getElementById("address").value;
-      const message = document.getElementById("message").value;
-
-      const text =
-        `New Inquiry from Website%0A%0A` +
-        `Name: ${name}%0A` +
-        `Mail: ${email}%0A` +
-        `Interest: ${interest}%0A` +
-        `Contact Number: ${phone}%0A` +
-        `Address: ${address}%0A` +
-        `Message: ${message}`;
-
-      /* ဒီနေရာမှာ ကိုယ့် WhatsApp/Viber ဖုန်းနံပါတ်ထည့်ပါ */
-      const phoneNumber = "959000000000";
-
-      window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
-
-      successMsg.style.display = "block";
-      form.reset();
-    });
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxBd8XleTn242JMwSJ9ZiUgxRswyiM7rrlm4gridXdjHLNGVy001PSeGcrrL2NpwXrs/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxBd8XleTn242JMwSJ9ZiUgxRswyiM7rrlm4gridXdjHLNGVy001PSeGcrrL2NpwXrs/exec";
 
 const form = document.getElementById("contactForm");
 const successMsg = document.getElementById("successMsg");
@@ -303,6 +273,9 @@ form.addEventListener("submit", function(e) {
 
   fetch(scriptURL, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(data)
   })
   .then(() => {
