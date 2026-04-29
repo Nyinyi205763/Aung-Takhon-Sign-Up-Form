@@ -284,6 +284,35 @@
       successMsg.style.display = "block";
       form.reset();
     });
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxBd8XleTn242JMwSJ9ZiUgxRswyiM7rrlm4gridXdjHLNGVy001PSeGcrrL2NpwXrs/exec";
+
+const form = document.getElementById("contactForm");
+const successMsg = document.getElementById("successMsg");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    interest: document.getElementById("interest").value,
+    phone: document.getElementById("phone").value,
+    address: document.getElementById("address").value,
+    message: document.getElementById("message").value
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    successMsg.style.display = "block";
+    form.reset();
+  })
+  .catch(() => {
+    alert("ပို့တာမအောင်မြင်ပါ။ နောက်တစ်ကြိမ်ပြန်စမ်းပါ။");
+  });
+});
   </script>
 
 </body>
