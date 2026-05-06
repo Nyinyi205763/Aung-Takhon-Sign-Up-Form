@@ -1,302 +1,586 @@
 <!DOCTYPE html>
 <html lang="my">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aung Tan Khun | Contact Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Arial", sans-serif;
-    }
+<title>NLP | Aung Takhon Inquiry Form</title>
 
-    body {
-      background: linear-gradient(135deg, #fffaf2, #f8fff4);
-      color: #3b1b00;
-    }
+<style>
 
-    .header {
-      padding: 18px 8%;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    .logo {
-      width: 92px;
-      height: 92px;
-      object-fit: contain;
-    }
+body{
+  background:#f3f3f3;
+  color:#222;
+}
 
-    .brand h2 {
-      font-size: 26px;
-      color: #9b0000;
-    }
+/* ================= HEADER ================= */
 
-    .brand p {
-      margin-top: 5px;
-      color: #5f6b55;
-      font-size: 15px;
-    }
+.header{
+  background:#ffffff;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:4px solid #18a651;
+}
 
-    .contact-section {
-      min-height: calc(100vh - 128px);
-      padding: 55px 8%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
+.brand-left{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
 
-    .tag {
-      color: #138a2e;
-      font-weight: 800;
-      letter-spacing: 1px;
-      font-size: 15px;
-    }
+.logo{
+  width:90px;
+  object-fit:contain;
+}
 
-    .contact-text h1 {
-      margin-top: 16px;
-      font-size: 48px;
-      line-height: 1.15;
-      color: #9b0000;
-    }
+.brand-text h1{
+  color:#18a651;
+  font-size:34px;
+  font-weight:900;
+}
 
-    .contact-text p {
-      margin-top: 22px;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #59645a;
-    }
+.brand-text p{
+  margin-top:5px;
+  color:#555;
+  font-size:15px;
+}
 
-    .info {
-      margin-top: 28px;
-      display: grid;
-      gap: 13px;
-      font-size: 17px;
-      color: #59645a;
-    }
+.atk-logo{
+  width:90px;
+  object-fit:contain;
+}
 
-    .info b {
-      color: #3b1b00;
-    }
+/* ================= HERO ================= */
 
-    .form-box {
-      background: #ffffff;
-      padding: 36px;
-      border-radius: 26px;
-      box-shadow: 0 20px 55px rgba(155,0,0,0.10);
-      border: 1px solid rgba(155,0,0,0.08);
-    }
+.hero{
+  padding:60px 7%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
 
-    .form-box h3 {
-      font-size: 26px;
-      margin-bottom: 22px;
-      color: #9b0000;
-    }
+.hero-text small{
+  color:#18a651;
+  font-weight:800;
+  letter-spacing:1px;
+}
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 17px 18px;
-      margin-bottom: 16px;
-      border: 1px solid #e3ddd4;
-      border-radius: 14px;
-      font-size: 16px;
-      outline: none;
-      background: #fff;
-      color: #3b1b00;
-    }
+.hero-text h2{
+  font-size:52px;
+  margin-top:18px;
+  line-height:1.2;
+  color:#f39a1f;
+  font-weight:900;
+}
 
-    textarea {
-      height: 150px;
-      resize: none;
-    }
+.hero-text p{
+  margin-top:22px;
+  font-size:18px;
+  line-height:1.8;
+  color:#555;
+}
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #138a2e;
-      box-shadow: 0 0 0 3px rgba(19,138,46,0.08);
-    }
+.feature-list{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
 
-    .submit-btn {
-      background: #138a2e;
-      color: #ffffff;
-      border: none;
-      padding: 16px 32px;
-      border-radius: 14px;
-      font-size: 17px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 4px 5px 0 #5b2100;
-      transition: 0.2s;
-    }
+.feature{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:700;
+  color:#222;
+}
 
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 6px 7px 0 #5b2100;
-    }
+.feature-icon{
+  width:45px;
+  height:45px;
+  background:#18a651;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  font-size:18px;
+}
 
-    .success {
-      display: none;
-      margin-top: 18px;
-      padding: 14px;
-      background: #ecfff1;
-      color: #138a2e;
-      border-radius: 12px;
-      font-weight: 700;
-    }
+/* ================= FORM ================= */
 
-    @media (max-width: 900px) {
-      .header {
-        padding: 14px 6%;
-      }
+.form-box{
+  background:#fff;
+  border:2px dashed #f39a1f;
+  border-radius:28px;
+  padding:38px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
 
-      .logo {
-        width: 70px;
-        height: 70px;
-      }
+.form-title{
+  background:#f39a1f;
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  border-radius:16px;
+  font-size:28px;
+  font-weight:900;
+  margin-bottom:28px;
+}
 
-      .brand h2 {
-        font-size: 20px;
-      }
+.input-group{
+  margin-bottom:18px;
+}
 
-      .contact-section {
-        grid-template-columns: 1fr;
-        padding: 34px 6%;
-      }
+input,
+select,
+textarea{
+  width:100%;
+  padding:17px 18px;
+  border-radius:14px;
+  border:1px solid #ddd;
+  outline:none;
+  font-size:16px;
+  background:#fff;
+}
 
-      .contact-text h1 {
-        font-size: 34px;
-      }
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#18a651;
+  box-shadow:0 0 0 3px rgba(24,166,81,0.12);
+}
 
-      .contact-text p,
-      .info {
-        font-size: 15px;
-      }
+textarea{
+  height:140px;
+  resize:none;
+}
 
-      .form-box {
-        padding: 24px;
-      }
-    }
-  </style>
+.submit-btn{
+  width:100%;
+  padding:18px;
+  border:none;
+  background:#f39a1f;
+  color:#fff;
+  font-size:18px;
+  font-weight:900;
+  border-radius:16px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.submit-btn:hover{
+  background:#dd850d;
+  transform:translateY(-2px);
+}
+
+.success{
+  margin-top:18px;
+  background:#ecfff3;
+  color:#18a651;
+  padding:16px;
+  border-radius:12px;
+  display:none;
+  font-weight:700;
+}
+
+/* ================= BOTTOM ================= */
+
+.bottom-section{
+  margin-top:40px;
+  background:#ffffff;
+  padding:28px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:4px solid #18a651;
+}
+
+.partner-box{
+  background:#f39a1f;
+  color:#fff;
+  padding:25px 35px;
+  border-radius:22px;
+  width:420px;
+}
+
+.partner-box h3{
+  font-size:34px;
+  font-weight:900;
+}
+
+.partner-box p{
+  margin-top:10px;
+  line-height:1.7;
+}
+
+.contact-box{
+  text-align:right;
+}
+
+.contact-box h4{
+  color:#18a651;
+  font-size:30px;
+}
+
+.contact-box p{
+  margin-top:10px;
+  font-size:20px;
+  color:#333;
+  font-weight:700;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:980px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-text h2{
+    font-size:38px;
+  }
+
+  .bottom-section{
+    flex-direction:column;
+    gap:30px;
+  }
+
+  .partner-box{
+    width:100%;
+  }
+
+  .contact-box{
+    text-align:center;
+  }
+
+  .header{
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .brand-left{
+    flex-direction:column;
+    text-align:center;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <header class="header">
-    <img src="LOGO.png" alt="Aung Tan Khun Logo" class="logo">
-    <div class="brand">
-      <h2>အောင်တံခွန် စိုက်ပျိုးရေးသွင်းအားစု</h2>
-      <p>Aung Tan Khun Agricultural Supplies</p>
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+  <div class="brand-left">
+
+    <img src="NLP-LOGO.png" class="logo">
+
+    <div class="brand-text">
+      <h1>NEW LIFE PLASTIC (NLP) CO., LTD.</h1>
+
+      <p>
+        HIGH QUALITY PLASTICS FOR BETTER IRRIGATION
+      </p>
     </div>
-  </header>
 
-  <section class="contact-section">
+  </div>
 
-    <div class="contact-text">
-      <div class="tag">CONTACT US</div>
+  <img src="ATK-LOGO.png" class="atk-logo">
 
-      <h1>စိုက်ပျိုးရေးသုံး ရေပိုက်နှင့် Pipe Fitting ပစ္စည်းများ</h1>
+</header>
 
-      <p>
-        We provide agricultural water pipes and pipe fitting products
-        for farms, irrigation systems, and agricultural businesses.
-      </p>
+<!-- ================= HERO ================= -->
 
-      <p>
-        ကိုယ်ပိုင်ထုတ်လုပ်ထားသော စိုက်ပျိုးရေးသုံးရေပိုက်များနှင့်
-        ပိုက်ဆက်ပစ္စည်းများအတွက် စုံစမ်းမေးမြန်းနိုင်ပါသည်။
-      </p>
+<section class="hero">
 
-      <div class="info">
-        <div><b>Phone:</b> +95 9 899 425384 </div>
-        <div><b>Email:</b> newlifeplasticslnp@gmail.com </div>
-        <div><b>Address:</b> အမှတ် JW-063,မိုးသောက်ပန်းလမ်းနှင့်မိုးဝေ(၂၂)လမ်းထောင့်၊ ဒက္ခိဏသီရိစက်မှုဇုံ၊ နေပြည်တော်။, MMR0180000777</div>
+  <!-- LEFT -->
+
+  <div class="hero-text">
+
+    <small>AUNG TAKHON AGRICULTURAL PRODUCTS</small>
+
+    <h2>
+      Become Our Distribution Partner
+    </h2>
+
+    <p>
+      လက်ကားရောင်းချင်သူများ၊ Retailers များနှင့်
+      စိုက်ပျိုးရေးလုပ်ငန်းရှင်များအတွက်
+      NLP နှင့်အတူ လက်တွဲလုပ်ဆောင်နိုင်ပါသည်။
+    </p>
+
+    <div class="feature-list">
+
+      <div class="feature">
+        <div class="feature-icon">✓</div>
+        Factory Direct
       </div>
+
+      <div class="feature">
+        <div class="feature-icon">✓</div>
+        Wholesale Available
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✓</div>
+        Bulk Order Support
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✓</div>
+        Nationwide Distribution
+      </div>
+
     </div>
 
-    <div class="form-box">
-      <h3>Send Inquiry</h3>
+  </div>
 
-      <form id="contactForm">
-        <input type="text" id="name" placeholder="Name / အမည်" required>
+  <!-- RIGHT FORM -->
 
-        <input type="email" id="email" placeholder="Mail / အီးမေးလ်">
+  <div class="form-box">
+
+    <div class="form-title">
+      Partner Registration Form
+    </div>
+
+    <form id="contactForm">
+
+      <div class="input-group">
+        <input type="text"
+        id="name"
+        placeholder="Name / အမည်"
+        required>
+      </div>
+
+      <div class="input-group">
+        <input type="text"
+        id="company"
+        placeholder="Company Name (For Wholesaler/Retailers)">
+      </div>
+
+      <div class="input-group">
+        <input type="text"
+        id="position"
+        placeholder="Position (If Company)">
+      </div>
+
+      <div class="input-group">
+        <select id="type" required>
+
+          <option value="">
+            Type Select
+          </option>
+
+          <option value="Wholesaler">
+            Wholesaler
+          </option>
+
+          <option value="Retailers">
+            Retailers
+          </option>
+
+          <option value="User">
+            User
+          </option>
+
+        </select>
+      </div>
+
+      <div class="input-group">
+        <input type="date" id="birthdate">
+      </div>
+
+      <div class="input-group">
 
         <select id="interest" required>
-          <option value="">Interest / စိတ်ဝင်စားသော ပစ္စည်းရွေးပါ</option>
-          <option value="အစက်ချရေပိုက်များ">အစက်ချရေပိုက်များ / Drip Irrigation Pipes</option>
-          <option value="ပိုက်ဆက်ပစ္စည်းများ">ပိုက်ဆက်ပစ္စည်းများ / Pipe Fitting Products</option>
+
+          <option value="">
+            Interest Product
+          </option>
+
+          <option value="Flat Pipe">
+            Flat Pipe
+          </option>
+
+          <option value="Rain Pipe">
+            Rain Pipe
+          </option>
+
+          <option value="Sprinkler">
+            Sprinkler
+          </option>
+
+          <option value="Pipe Fittings">
+            Pipe Fittings
+          </option>
+
+          <option value="LDPE">
+            LDPE
+          </option>
+
+          <option value="PP">
+            PP
+          </option>
+
         </select>
 
-        <input type="tel" id="phone" placeholder="Contact Number / ဆက်သွယ်ရန်ဖုန်းနံပါတ်" required>
+      </div>
 
-        <input type="text" id="address" placeholder="Address / လိပ်စာ">
+      <div class="input-group">
+        <input type="tel"
+        id="phone"
+        placeholder="Contact Number"
+        required>
+      </div>
 
-        <textarea id="message" placeholder="Your Message / မေးမြန်းလိုသောအကြောင်းအရာ" required></textarea>
+      <div class="input-group">
+        <input type="text"
+        id="address"
+        placeholder="Address">
+      </div>
 
-        <button type="submit" class="submit-btn">Send Inquiry</button>
+      <div class="input-group">
+        <textarea id="message"
+        placeholder="Your Message"></textarea>
+      </div>
 
-        <div class="success" id="successMsg">
-          ✅ Inquiry ပို့ပြီးပါပြီ။ မကြာမီ ပြန်လည်ဆက်သွယ်ပေးပါမည်။
-        </div>
-      </form>
-    </div>
+      <button type="submit" class="submit-btn">
+        Submit Inquiry
+      </button>
 
-  </section>
+      <div class="success" id="successMsg">
+        ✅ Successfully Submitted
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- ================= BOTTOM ================= -->
+
+<section class="bottom-section">
+
+  <div class="partner-box">
+
+    <h3>BECOME OUR PARTNER</h3>
+
+    <p>
+      Join Our Distribution Network
+      and Grow Business With NLP Products.
+    </p>
+
+  </div>
+
+  <div class="contact-box">
+
+    <h4>Contact Us Now!</h4>
+
+    <p>09 899 425 384</p>
+
+  </div>
+
+</section>
+
+<!-- ================= JS ================= -->
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxhmkGYXLAZfbgPv5riddRk0BjL9eP9AONhulylZu6xW9kCnp4VJ_9PMggYvJaVhZAQ/exec";
+
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbxhmkGYXLAZfbgPv5riddRk0BjL9eP9AONhulylZu6xW9kCnp4VJ_9PMggYvJaVhZAQ/exec";
 
 const form = document.getElementById("contactForm");
 const successMsg = document.getElementById("successMsg");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function(e){
+
   e.preventDefault();
 
   successMsg.style.display = "block";
-  successMsg.style.background = "#fff7e6";
-  successMsg.style.color = "#9b5c00";
-  successMsg.innerHTML = "⏳ Sending... ခဏစောင့်ပေးပါ";
+  successMsg.style.background = "#fff4df";
+  successMsg.style.color = "#cc7a00";
+  successMsg.innerHTML = "⏳ Sending...";
 
   const data = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    interest: document.getElementById("interest").value,
-    phone: document.getElementById("phone").value,
-    address: document.getElementById("address").value,
-    message: document.getElementById("message").value
+
+    name:
+    document.getElementById("name").value,
+
+    company:
+    document.getElementById("company").value,
+
+    position:
+    document.getElementById("position").value,
+
+    type:
+    document.getElementById("type").value,
+
+    birthdate:
+    document.getElementById("birthdate").value,
+
+    interest:
+    document.getElementById("interest").value,
+
+    phone:
+    document.getElementById("phone").value,
+
+    address:
+    document.getElementById("address").value,
+
+    message:
+    document.getElementById("message").value
+
   };
 
   fetch(scriptURL, {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    successMsg.style.background = "#ecfff1";
-    successMsg.style.color = "#138a2e";
-    successMsg.innerHTML = "✅ Inquiry ပို့ပြီးပါပြီ။ မကြာမီ ပြန်လည်ဆက်သွယ်ပေးပါမည်။";
-    form.reset();
-  })
-  .catch(() => {
-    successMsg.style.background = "#fff0f0";
-    successMsg.style.color = "#b00020";
-    successMsg.innerHTML = "❌ ပေးပို့ခြင်းမအောင်မြင်ပါ။ နောက်တစ်ကြိမ်ပြန်စမ်းပါ။";
-  });
-});
-</script>
 
-</body>
-</html>
+    method:"POST",
+    mode:"no-cors",
+    body:JSON.stringify(data)
+
+  })
+
+  .then(()=>{
+
+    successMsg.style.background = "#ecfff3";
+    successMsg.style.color = "#18a651";
+
+    successMsg.innerHTML =
+    "✅ Inquiry Submitted Successfully";
+
+    form.reset();
+
+  })
+
+  .catch(()=>{
+
+    successMsg.style.background = "#fff0f0";
+    successMsg.style.color = "#d10000";
+
+    successMsg.innerHTML =
+    "❌ Submit Failed";
+
+  });
+
+});
+
+</script>
 
 </body>
 </html>
