@@ -162,47 +162,100 @@ textarea{
 
 /* ================= FOOTER ================= */
 
+/* ================= FOOTER CTA ================= */
+
 .footer{
-  margin-top:35px;
+  margin-top:40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:20px;
+  gap:40px;
+
+  background:#ffffff;
+  border-radius:28px;
+  padding:35px 45px;
+
+  border:1px solid #e6e6e6;
 }
+
+/* Left CTA Box */
 
 .partner-box{
   background:#f29b1d;
   color:#fff;
-  padding:24px 28px;
-  border-radius:18px;
-  width:380px;
+
+  padding:38px;
+  border-radius:24px;
+
+  flex:1;
 }
 
 .partner-box h3{
-  font-size:28px;
+  font-size:42px;
+  line-height:1.1;
   font-weight:900;
 }
 
 .partner-box p{
-  margin-top:10px;
-  line-height:1.6;
+  margin-top:18px;
+  line-height:1.8;
+  font-size:18px;
 }
 
+/* Right Contact Box */
+
 .contact-box{
-  text-align:right;
+  flex:1;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
 }
 
 .contact-box h4{
   color:#14a651;
-  font-size:28px;
+  font-size:48px;
+  font-weight:900;
 }
 
 .contact-box p{
-  margin-top:10px;
-  font-size:18px;
-  font-weight:700;
+  margin-top:16px;
+
+  font-size:34px;
+  font-weight:800;
+
+  color:#222;
 }
 
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .footer{
+    flex-direction:column;
+    padding:28px;
+  }
+
+  .partner-box{
+    width:100%;
+  }
+
+  .partner-box h3{
+    font-size:34px;
+  }
+
+  .contact-box h4{
+    font-size:36px;
+  }
+
+  .contact-box p{
+    font-size:28px;
+  }
+
+}
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
