@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradeNest Partner Form</title>
+    <title>TradeNest Partner Form - Dynamic</title>
     <style>
         :root {
             --primary-blue: #2c4464;
@@ -11,84 +11,16 @@
             --light-bg: #f8f9fa;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: var(--light-bg); color: #333; padding: 20px; }
 
-        body {
-            background: var(--light-bg);
-            color: #333;
-        }
-
-        /* ================= HEADER ================= */
-        .header {
-            width: 100%;
-            background: #fff;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            width: 60px;
-        }
-
-        .brand-text h1 {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--primary-blue);
-            letter-spacing: 1px;
-        }
-
-        .brand-text p {
-            font-size: 12px;
-            color: var(--primary-green);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        /* ================= MAIN ================= */
-        .main {
-            width: 100%;
-            padding: 40px 7% 60px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .top-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .top-title h2 {
-            font-size: 36px;
-            color: var(--primary-blue);
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .top-title p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        /* ================= FORM ================= */
         .form-box {
             background: #fff;
             border-radius: 16px;
-            padding: 40px;
+            padding: 30px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: auto;
             border-top: 6px solid var(--primary-green);
         }
 
@@ -96,208 +28,162 @@
             font-size: 22px;
             font-weight: 700;
             color: var(--primary-blue);
-            margin-bottom: 25px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
 
         input, select, textarea {
             width: 100%;
-            padding: 14px 16px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
             outline: none;
             font-size: 15px;
-            transition: 0.3s;
         }
 
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(140, 198, 63, 0.1);
-        }
-
-        textarea {
-            resize: none;
-            height: 110px;
-        }
+        select:focus, input:focus { border-color: var(--primary-green); }
 
         .submit-btn {
             background: var(--primary-blue);
             color: #fff;
             border: none;
-            padding: 16px;
+            padding: 15px;
             width: 100%;
             border-radius: 8px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
             margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background: #1e2f46;
-            transform: translateY(-1px);
         }
 
         .success {
             display: none;
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 15px;
+            padding: 12px;
             border-radius: 8px;
             text-align: center;
-            font-weight: 600;
-        }
-
-        /* ================= FOOTER BOX ================= */
-        .footer-info {
-            margin-top: 30px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .info-card {
-            flex: 1;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .blue-card { background: var(--primary-blue); color: #fff; }
-        .green-card { background: var(--primary-green); color: #fff; }
-
-        .info-card h3 { font-size: 20px; margin-bottom: 10px; }
-        .info-card p { font-size: 18px; font-weight: 700; }
-
-        @media(max-width: 768px) {
-            .form-grid { grid-template-columns: 1fr; }
-            .footer-info { flex-direction: column; }
-            .header { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-<header class="header">
-    <div class="header-left">
-        <div style="width:50px; height:50px; background:var(--primary-green); border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">TN</div>
-        <div class="brand-text">
-            <h1>TRADENEST</h1>
-            <p>Distribution Solutions</p>
+<div class="form-box">
+    <div class="form-title">Partner Registration</div>
+    
+    <form id="contactForm">
+        <div class="form-group">
+            <input type="text" id="name" placeholder="Full Name" required>
         </div>
-    </div>
-</header>
 
-<section class="main">
-    <div class="top-title">
-        <h2>Partner Registration</h2>
-        <p>Join our network and grow your business with TradeNest.</p>
-    </div>
-
-    <div class="form-box">
-        <div class="form-title">Inquiry Form</div>
-        <form id="contactForm">
-            <div class="form-grid">
-                <div>
-                    <input type="text" id="name" placeholder="Full Name" required>
-                </div>
-                <div>
-                    <input type="tel" id="phone" placeholder="Phone Number" required>
-                </div>
-                <div>
-                    <input type="email" id="email" placeholder="Email Address">
-                </div>
-                <div>
-                    <input type="text" id="company" placeholder="Company / Shop Name">
-                </div>
-
-                <div class="full-width">
-                    <select id="interest" required>
-                        <option value="">Select Interested Product</option>
-                        <option value="Rain Pipe">Rain Pipe</option>
-                        <option value="Flat Pipe">Flat Pipe</option>
-                        <option value="Fittings">Pipe Fittings</option>
-                        <option value="Other">Other Plastics</option>
-                    </select>
-                </div>
-
-                <div class="full-width">
-                    <input type="text" id="address" placeholder="Business Address (City / Township)">
-                </div>
-
-                <div class="full-width">
-                    <textarea id="message" placeholder="Your Message or Special Requirements"></textarea>
-                </div>
-
-                <div class="full-width">
-                    <button type="submit" class="submit-btn">SUBMIT INQUIRY</button>
-                </div>
-            </div>
-            <div class="success" id="successMsg"></div>
-        </form>
-    </div>
-
-    <div class="footer-info">
-        <div class="info-card blue-card">
-            <h3>Contact Us Now</h3>
-            <p>09 257 107 786</p>
+        <div class="form-group">
+            <input type="tel" id="phone" placeholder="Phone Number" required>
         </div>
-        <div class="info-card green-card">
-            <h3>Email Us</h3>
-            <p>info@tradenest.com</p>
+
+        <div class="form-group">
+            <label>Interested Brand</label>
+            <select id="brand" onchange="updateProducts()" required>
+                <option value="">-- Select Brand --</option>
+                <option value="ATK">Aung TaKhon</option>
+                <option value="NLP">New Life Plastic</option>
+                <option value="Spark">Spark</option>
+            </select>
         </div>
-    </div>
-</section>
+
+        <div class="form-group">
+            <label>Interested Items</label>
+            <select id="items" required>
+                <option value="">-- Select Brand First --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="address" placeholder="Address">
+        </div>
+
+        <div class="form-group">
+            <textarea id="message" placeholder="Your Message"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">SUBMIT INQUIRY</button>
+        <div class="success" id="successMsg"></div>
+    </form>
+</div>
 
 <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyM_RbKYcbesH4hPHSjecZPdGRLC9gycpPQkNjUuoleh_naj_mV7VBpE7h0Rk1syVT4/exec";// မူလ URL ကို ဒီမှာ ပြန်ထည့်ပါ
+    // Product Data
+    const products = {
+        "ATK": [
+            "NBP1.0-2.45-0H", "NBP1.0-3-0H", "NBP1.0-3-5H", "NBP1.0-3-7H", "NBP1.0-3-8H", 
+            "NBP1.0-4-0H", "NBP1.5-4.7-0H", "NBP1.5-4.7-5H", "NBP1.5-4.7-7H", "NBP1.5-4.7-8H", 
+            "NBP1.5-6-0H", "NBP1.5-6-5H", "NBP1.5-6-7H", "NBP1.5-6-8H", "NBP2.0-2.45-0H", 
+            "NWP2.0-2.45-0H", "NWP2.0-6-0H", "NBP2.0-5.7-0H", "NBP2.0-5.7-5H", "NBP2.0-5.7-7H", 
+            "NBP2.0-7-0H", "NBP2.5-6.8-0H", "NBP2.5-6.8-9H", "NBP3.0-4.75-0H", "NBP3.0-4.5-0H", 
+            "NBP3.0-9.5-0H", "NBP3.0-12.5-0H", "NWP3.0-10-0H", "NBP4.0-16-0H", "NBP4.0-18-0H", 
+            "NSK1-T", "NSK2x1-4W", "NSKSP-FP", "NSKMINI-O", "NSKMINI-Y", "NSK4x2-T", 
+            "NSK2x2-Black", "NSK2-TB", "NSK3-TB", "NSK4-GDP", "NSK3-GDP", "NSK2-GDP", 
+            "NSK3x1-Black", "NSK3x1.5-Black", "NSK4x2-White", "NSK2-Big", "ATK-PS-500CC", "BC16A-Ba"
+        ],
+        "NLP": [
+            "PP", "LDPE", "NSKSP-Red", "NSKSP-Green", "NSKSP-Yellow"
+        ],
+        "Spark": [
+            "FDP16MM40CM", "FDP16MM30CM", "RDP16MM40CM"
+        ]
+    };
+
+    function updateProducts() {
+        const brandSelect = document.getElementById("brand");
+        const itemSelect = document.getElementById("items");
+        const selectedBrand = brandSelect.value;
+
+        // Clear previous options
+        itemSelect.innerHTML = '<option value="">-- Select Product --</option>';
+
+        if (selectedBrand && products[selectedBrand]) {
+            products[selectedBrand].forEach(product => {
+                let option = document.createElement("option");
+                option.value = product;
+                option.text = product;
+                itemSelect.appendChild(option);
+            });
+        } else {
+            itemSelect.innerHTML = '<option value="">-- Select Brand First --</option>';
+        }
+    }
+
+    // Form Submission Logic
+    const scriptURL = "YOUR_APPS_SCRIPT_URL";
     const form = document.getElementById("contactForm");
     const successMsg = document.getElementById("successMsg");
 
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", e => {
         e.preventDefault();
-        
         successMsg.style.display = "block";
-        successMsg.style.background = "#fff3cd";
-        successMsg.style.color = "#856404";
-        successMsg.innerHTML = "⏳ Sending Inquiry...";
-
+        successMsg.innerHTML = "⏳ Sending...";
+        
         const data = {
             name: document.getElementById("name").value,
             phone: document.getElementById("phone").value,
-            email: document.getElementById("email").value,
-            company: document.getElementById("company").value,
-            interest: document.getElementById("interest").value,
+            brand: document.getElementById("brand").value,
+            item: document.getElementById("items").value,
             address: document.getElementById("address").value,
             message: document.getElementById("message").value
         };
 
-        fetch(scriptURL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify(data)
-        })
-        .then(() => {
-            successMsg.style.background = "#d4edda";
-            successMsg.style.color = "#155724";
-            successMsg.innerHTML = "✅ Inquiry Submitted Successfully!";
-            form.reset();
-        })
-        .catch(() => {
-            successMsg.style.background = "#f8d7da";
-            successMsg.style.color = "#721c24";
-            successMsg.innerHTML = "❌ Submit Failed. Please try again.";
-        });
+        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data)})
+            .then(() => {
+                successMsg.style.background = "#d4edda";
+                successMsg.innerHTML = "✅ Submitted Successfully!";
+                form.reset();
+                updateProducts(); // Reset item dropdown
+            })
+            .catch(error => {
+                successMsg.style.background = "#f8d7da";
+                successMsg.innerHTML = "❌ Error occurred.";
+            });
     });
 </script>
 
