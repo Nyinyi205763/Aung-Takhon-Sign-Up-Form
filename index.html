@@ -1,617 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeNest Partner Form</title>
+    <style>
+        :root {
+            --primary-blue: #2c4464;
+            --primary-green: #8cc63f;
+            --light-bg: #f8f9fa;
+        }
 
-<title>NLP Partner Form</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
 
-<style>
+        body {
+            background: var(--light-bg);
+            color: #333;
+        }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
+        /* ================= HEADER ================= */
+        .header {
+            width: 100%;
+            background: #fff;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-body{
-  background:#f2f2f2;
-  color:#222;
-}
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-/* ================= HEADER ================= */
+        .logo {
+            width: 60px;
+        }
 
-.header{
-  width:100%;
-  background:#f2f2f2;
-  padding:24px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+        .brand-text h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
 
-.header-left{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
+        .brand-text p {
+            font-size: 12px;
+            color: var(--primary-green);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
 
-.logo{
-  width:75px;
-}
+        /* ================= MAIN ================= */
+        .main {
+            width: 100%;
+            padding: 40px 7% 60px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.brand-text h1{
-  font-size:34px;
-  font-weight:900;
-  color:#14a651;
-}
+        .top-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.brand-text p{
-  margin-top:5px;
-  font-size:14px;
-  color:#555;
-}
+        .top-title h2 {
+            font-size: 36px;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
 
-.atk-logo{
-  width:85px;
-}
+        .top-title p {
+            color: #666;
+            font-size: 16px;
+        }
 
-/* ================= MAIN ================= */
+        /* ================= FORM ================= */
+        .form-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--primary-green);
+        }
 
-.main{
-  width:100%;
-  padding:20px 7% 60px;
-}
+        .form-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
 
-.top-title{
-  margin-bottom:35px;
-}
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
 
-.top-title h2{
-  font-size:48px;
-  line-height:1.2;
-  color:#f29b1d;
-  font-weight:900;
-}
+        .full-width {
+            grid-column: 1 / -1;
+        }
 
-.top-title p{
-  margin-top:16px;
-  color:#555;
-  font-size:17px;
-  line-height:1.7;
-  max-width:700px;
-}
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
 
-/* ================= FORM ================= */
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(140, 198, 63, 0.1);
+        }
 
-.form-box{
-  background:#fff;
-  border:2px dashed #f29b1d;
-  border-radius:24px;
-  padding:38px;
-}
-.form-box{
-   max-width: 1000px;
-   margin:auto;
-}
-.form-title{
-  font-size:28px;
-  font-weight:900;
-  color:#14a651;
-  margin-bottom:28px;
-}
+        textarea {
+            resize: none;
+            height: 110px;
+        }
 
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
+        .submit-btn {
+            background: var(--primary-blue);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
 
-.full-width{
-  grid-column:1 / -1;
-}
+        .submit-btn:hover {
+            background: #1e2f46;
+            transform: translateY(-1px);
+        }
 
-input,
-select,
-textarea{
-  width:100%;
-  padding:17px 18px;
-  border:1px solid #dcdcdc;
-  border-radius:14px;
-  outline:none;
-  background:#fff;
-  font-size:15px;
-  color:#222;
-}
+        .success {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
 
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:#14a651;
-}
+        /* ================= FOOTER BOX ================= */
+        .footer-info {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
 
-textarea{
-  resize:none;
-  height:140px;
-}
+        .info-card {
+            flex: 1;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
 
-.submit-btn{
-  background:#f29b1d;
-  color:#fff;
-  border:none;
-  padding:18px;
-  width:100%;
-  border-radius:14px;
-  font-size:17px;
-  font-weight:800;
-  cursor:pointer;
-  transition:0.2s;
-}
+        .blue-card { background: var(--primary-blue); color: #fff; }
+        .green-card { background: var(--primary-green); color: #fff; }
 
-.submit-btn:hover{
-  background:#de8d17;
-}
+        .info-card h3 { font-size: 20px; margin-bottom: 10px; }
+        .info-card p { font-size: 18px; font-weight: 700; }
 
-.success{
-  display:none;
-  margin-top:18px;
-  padding:15px;
-  border-radius:12px;
-  background:#ecfff2;
-  color:#14a651;
-  font-weight:700;
-}
-
-/* ================= FOOTER ================= */
-.footer{
-  margin-top:40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:32px;
-
-  background:#ffffff;
-  border-radius:24px;
-  padding:28px 36px;
-
-  border:1px solid #e6e6e6;
-}
-
-/* Left Box */
-
-.partner-box{
-  background:#f29b1d;
-  color:#fff;
-
-  padding:30px;
-  border-radius:20px;
-
-  flex:1;
-}
-
-.partner-box h3{
-  font-size:30px;
-  line-height:1.15;
-  font-weight:900;
-}
-
-.partner-box p{
-  margin-top:14px;
-  line-height:1.7;
-  font-size:16px;
-}
-
-/* Right Box */
-
-.contact-box{
-  flex:1;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  text-align:center;
-}
-
-.contact-box h4{
-  color:#14a651;
-  font-size:30px;
-  font-weight:900;
-}
-
-.contact-box p{
-  margin-top:14px;
-
-  font-size:24px;
-  font-weight:800;
-
-  color:#222;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-  .footer{
-    flex-direction:column;
-    padding:28px;
-  }
-
-  .partner-box{
-    width:100%;
-  }
-
-  .partner-box h3{
-    font-size:34px;
-  }
-
-  .contact-box h4{
-    font-size:36px;
-  }
-
-  .contact-box p{
-    font-size:28px;
-  }
-
-}
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-  .header{
-    flex-direction:column;
-    gap:18px;
-  }
-
-  .header-left{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .brand-text h1{
-    font-size:24px;
-  }
-
-  .top-title h2{
-    font-size:34px;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .partner-box{
-    width:100%;
-  }
-
-  .contact-box{
-    text-align:left;
-  }
-
-}
-
-</style>
+        @media(max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .footer-info { flex-direction: column; }
+            .header { flex-direction: column; text-align: center; gap: 15px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header class="header">
-
-  <div class="header-left">
-
-    <img src="
-NLP Logo.png" class="logo">
-
-    <div class="brand-text">
-
-      <h1>NEW LIFE PLASTIC (NLP) CO., LTD.</h1>
-
-      <p>
-        HIGH QUALITY PLASTICS FOR BETTER IRRIGATION
-      </p>
-
+    <div class="header-left">
+        <div style="width:50px; height:50px; background:var(--primary-green); border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">TN</div>
+        <div class="brand-text">
+            <h1>TRADENEST</h1>
+            <p>Distribution Solutions</p>
+        </div>
     </div>
-
-  </div>
-
-  <img src="Aung TaKhon Logo.png" class="atk-logo">
-
 </header>
 
-<!-- ================= MAIN ================= -->
-
 <section class="main">
-
-  <div class="top-title">
-
-    <h2>
-      Become Our Distribution Partner
-    </h2>
-
-    <p>
-      Wholesaler, Retailer နှင့် စိုက်ပျိုးရေးလုပ်ငန်းရှင်များအတွက်
-      NLP နှင့် အောင်တံခွန် Product များကို
-      လက်တွဲရောင်းချနိုင်ပါသည်။
-    </p>
-
-  </div>
-
-  <!-- ================= FORM ================= -->
-
-  <div class="form-box">
-
-    <div class="form-title">
-      Partner Registration Form
+    <div class="top-title">
+        <h2>Partner Registration</h2>
+        <p>Join our network and grow your business with TradeNest.</p>
     </div>
 
-    <form id="contactForm">
+    <div class="form-box">
+        <div class="form-title">Inquiry Form</div>
+        <form id="contactForm">
+            <div class="form-grid">
+                <div>
+                    <input type="text" id="name" placeholder="Full Name" required>
+                </div>
+                <div>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                </div>
+                <div>
+                    <input type="email" id="email" placeholder="Email Address">
+                </div>
+                <div>
+                    <input type="text" id="company" placeholder="Company / Shop Name">
+                </div>
 
-      <div class="form-grid">
+                <div class="full-width">
+                    <select id="interest" required>
+                        <option value="">Select Interested Product</option>
+                        <option value="Rain Pipe">Rain Pipe</option>
+                        <option value="Flat Pipe">Flat Pipe</option>
+                        <option value="Fittings">Pipe Fittings</option>
+                        <option value="Other">Other Plastics</option>
+                    </select>
+                </div>
 
-        <!-- Name -->
+                <div class="full-width">
+                    <input type="text" id="address" placeholder="Business Address (City / Township)">
+                </div>
 
-        <div>
-          <input type="text"
-          id="name"
-          placeholder="Name"
-          required>
-        </div>
+                <div class="full-width">
+                    <textarea id="message" placeholder="Your Message or Special Requirements"></textarea>
+                </div>
 
-        <!-- Email -->
-
-        <div>
-          <input type="email"
-          id="email"
-          placeholder="Email Address">
-        </div>
-
-        <!-- Company -->
-
-        <div>
-          <input type="text"
-          id="company"
-          placeholder="Company Name">
-        </div>
-
-        <!-- Position -->
-
-        <div>
-          <input type="text"
-          id="position"
-          placeholder="Position">
-        </div>
-
-        <!-- Type -->
-
-        <div>
-          <select id="type" required>
-
-            <option value="">
-              Select Type
-            </option>
-
-            <option value="Wholesaler">
-              Wholesaler
-            </option>
-
-            <option value="Retailer">
-              Retailer
-            </option>
-
-            <option value="User">
-              User
-            </option>
-
-          </select>
-        </div>
-
-        <!-- Birth -->
-
-        <div>
-          <input type="date" id="birthdate">
-        </div>
-
-        <!-- Interest -->
-
-        <div class="full-width">
-
-          <select id="interest" required>
-
-            <option value="">
-              Select Interest Product
-            </option>
-
-            <option value="Flat Pipe">
-              Flat Pipe
-            </option>
-
-            <option value="Rain Pipe">
-              Rain Pipe
-            </option>
-
-            <option value="Sprinkler">
-              Sprinkler
-            </option>
-
-            <option value="Pipe Fittings">
-              Pipe Fittings
-            </option>
-
-            <option value="LDPE">
-              LDPE
-            </option>
-
-            <option value="PP">
-              PP
-            </option>
-
-          </select>
-
-        </div>
-
-        <!-- Contact -->
-
-        <div class="full-width">
-          <input type="tel"
-          id="phone"
-          placeholder="Contact Number"
-          required>
-        </div>
-
-        <!-- Address -->
-
-        <div class="full-width">
-          <input type="text"
-          id="address"
-          placeholder="Address">
-        </div>
-
-        <!-- Message -->
-
-        <div class="full-width">
-          <textarea id="message"
-          placeholder="Your Message"></textarea>
-        </div>
-
-        <!-- Button -->
-
-        <div class="full-width">
-          <button type="submit" class="submit-btn">
-            Submit Inquiry
-          </button>
-        </div>
-
-      </div>
-
-      <div class="success" id="successMsg">
-        ✅ Successfully Submitted
-      </div>
-
-    </form>
-
-  </div>
-
-  <!-- ================= FOOTER ================= -->
-
-  <div class="footer">
-
-    <div class="partner-box">
-
-      <h3>BECOME OUR PARTNER</h3>
-
-      <p>
-        Join Our Distribution Network
-        and Grow Business With Us.
-      </p>
-
+                <div class="full-width">
+                    <button type="submit" class="submit-btn">SUBMIT INQUIRY</button>
+                </div>
+            </div>
+            <div class="success" id="successMsg"></div>
+        </form>
     </div>
 
-    <div class="contact-box">
-
-      <h4>Contact Us Now!</h4>
-
-      <p>09 899 425 384</p>
-
+    <div class="footer-info">
+        <div class="info-card blue-card">
+            <h3>Contact Us Now</h3>
+            <p>09 257 107 786</p>
+        </div>
+        <div class="info-card green-card">
+            <h3>Email Us</h3>
+            <p>info@tradenest.com</p>
+        </div>
     </div>
-
-  </div>
-
 </section>
 
-<!-- ================= JS ================= -->
-
 <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyM_RbKYcbesH4hPHSjecZPdGRLC9gycpPQkNjUuoleh_naj_mV7VBpE7h0Rk1syVT4/exec";// မူလ URL ကို ဒီမှာ ပြန်ထည့်ပါ
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
 
-const scriptURL =
-"https://script.google.com/macros/s/AKfycbyM_RbKYcbesH4hPHSjecZPdGRLC9gycpPQkNjUuoleh_naj_mV7VBpE7h0Rk1syVT4/exec";
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        successMsg.style.display = "block";
+        successMsg.style.background = "#fff3cd";
+        successMsg.style.color = "#856404";
+        successMsg.innerHTML = "⏳ Sending Inquiry...";
 
-const form = document.getElementById("contactForm");
-const successMsg = document.getElementById("successMsg");
+        const data = {
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            company: document.getElementById("company").value,
+            interest: document.getElementById("interest").value,
+            address: document.getElementById("address").value,
+            message: document.getElementById("message").value
+        };
 
-form.addEventListener("submit", function(e){
-
-  e.preventDefault();
-
-  successMsg.style.display = "block";
-  successMsg.style.background = "#fff6e8";
-  successMsg.style.color = "#cc8300";
-  successMsg.innerHTML = "⏳ Sending...";
-
-  const data = {
-
-    name:
-    document.getElementById("name").value,
-
-    email:
-    document.getElementById("email").value,
-
-    company:
-    document.getElementById("company").value,
-
-    position:
-    document.getElementById("position").value,
-
-    type:
-    document.getElementById("type").value,
-
-    birthdate:
-    document.getElementById("birthdate").value,
-
-    interest:
-    document.getElementById("interest").value,
-
-    phone:
-    document.getElementById("phone").value,
-
-    address:
-    document.getElementById("address").value,
-
-    message:
-    document.getElementById("message").value
-
-  };
-
-  fetch(scriptURL,{
-
-    method:"POST",
-    mode:"no-cors",
-    body:JSON.stringify(data)
-
-  })
-
-  .then(()=>{
-
-    successMsg.style.background = "#ecfff2";
-    successMsg.style.color = "#14a651";
-
-    successMsg.innerHTML =
-    "✅ Inquiry Submitted Successfully";
-
-    form.reset();
-
-  })
-
-  .catch(()=>{
-
-    successMsg.style.background = "#fff0f0";
-    successMsg.style.color = "#d10000";
-
-    successMsg.innerHTML =
-    "❌ Submit Failed";
-
-  });
-
-});
-
+        fetch(scriptURL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            successMsg.style.background = "#d4edda";
+            successMsg.style.color = "#155724";
+            successMsg.innerHTML = "✅ Inquiry Submitted Successfully!";
+            form.reset();
+        })
+        .catch(() => {
+            successMsg.style.background = "#f8d7da";
+            successMsg.style.color = "#721c24";
+            successMsg.innerHTML = "❌ Submit Failed. Please try again.";
+        });
+    });
 </script>
 
 </body>
