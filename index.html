@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradeNest Partner Form - Dynamic</title>
+    <title>TradeNest - Partner Registration</title>
     <style>
         :root {
             --primary-blue: #2c4464;
@@ -12,108 +12,176 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: var(--light-bg); color: #333; padding: 20px; }
+        body { background: var(--light-bg); color: #333; }
+
+        /* ================= HEADER ================= */
+        .header {
+            background: #fff;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 50px; height: 50px; object-fit: contain; }
+        .brand-name { font-size: 22px; font-weight: 800; color: var(--primary-blue); }
+
+        /* ================= MAIN CONTENT ================= */
+        .main-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
         .form-box {
             background: #fff;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            max-width: 600px;
-            margin: auto;
-            border-top: 6px solid var(--primary-green);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--primary-green);
         }
 
         .form-title {
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 26px;
+            font-weight: 800;
             color: var(--primary-blue);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            font-size: 15px;
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
-        select:focus, input:focus { border-color: var(--primary-green); }
+        .full-width { grid-column: 1 / -1; }
+
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #555; }
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(140, 198, 63, 0.1);
+        }
 
         .submit-btn {
             background: var(--primary-blue);
             color: #fff;
             border: none;
-            padding: 15px;
+            padding: 16px;
             width: 100%;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 17px;
             font-weight: 700;
             cursor: pointer;
-            margin-top: 10px;
+            transition: 0.3s;
+            margin-top: 15px;
         }
+
+        .submit-btn:hover { background: #1e2f46; transform: translateY(-2px); }
 
         .success {
             display: none;
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 8px;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
+            font-weight: 600;
+        }
+
+        @media(max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .header { padding: 15px 5%; }
         }
     </style>
 </head>
 <body>
 
-<div class="form-box">
-    <div class="form-title">Partner Registration</div>
-    
-    <form id="contactForm">
-        <div class="form-group">
-            <input type="text" id="name" placeholder="Full Name" required>
-        </div>
+<header class="header">
+    <div class="header-left">
+        <img src="logo.png" alt="TN Logo" class="logo">
+        <span class="brand-name">TRADENEST</span>
+    </div>
+    <div style="font-size: 12px; color: #888; font-weight: 600;">DISTRIBUTION SOLUTIONS</div>
+</header>
 
-        <div class="form-group">
-            <input type="tel" id="phone" placeholder="Phone Number" required>
-        </div>
+<div class="main-container">
+    <div class="form-box">
+        <h2 class="form-title">Partner Registration</h2>
+        
+        <form id="partnerForm">
+            <div class="form-grid">
+                <div class="full-width">
+                    <label>Full Name *</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
 
-        <div class="form-group">
-            <label>Interested Brand</label>
-            <select id="brand" onchange="updateProducts()" required>
-                <option value="">-- Select Brand --</option>
-                <option value="ATK">Aung TaKhon</option>
-                <option value="NLP">New Life Plastic</option>
-                <option value="Spark">Spark</option>
-            </select>
-        </div>
+                <div>
+                    <label>Phone Number *</label>
+                    <input type="tel" id="phone" placeholder="09xxxxxxx" required>
+                </div>
 
-        <div class="form-group">
-            <label>Interested Items</label>
-            <select id="items" required>
-                <option value="">-- Select Brand First --</option>
-            </select>
-        </div>
+                <div>
+                    <label>Customer Type *</label>
+                    <select id="customerType" required>
+                        <option value="">-- Select Type --</option>
+                        <option value="User">User</option>
+                        <option value="Retailer">Retailer</option>
+                        <option value="Wholesaler">Wholesaler</option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <input type="text" id="address" placeholder="Address">
-        </div>
+                <div>
+                    <label>Interested Brand *</label>
+                    <select id="brand" onchange="updateProducts()" required>
+                        <option value="">-- Select Brand --</option>
+                        <option value="ATK">Aung TaKhon</option>
+                        <option value="NLP">New Life Plastic</option>
+                        <option value="Spark">Spark</option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <textarea id="message" placeholder="Your Message"></textarea>
-        </div>
+                <div>
+                    <label>Interested Item *</label>
+                    <select id="items" required>
+                        <option value="">-- Select Brand First --</option>
+                    </select>
+                </div>
 
-        <button type="submit" class="submit-btn">SUBMIT INQUIRY</button>
-        <div class="success" id="successMsg"></div>
-    </form>
+                <div class="full-width">
+                    <label>Business Address</label>
+                    <input type="text" id="address" placeholder="City, Township">
+                </div>
+
+                <div class="full-width">
+                    <label>Inquiry Message</label>
+                    <textarea id="message" rows="3" placeholder="Additional details..."></textarea>
+                </div>
+
+                <div class="full-width">
+                    <button type="submit" class="submit-btn">SUBMIT REGISTRATION</button>
+                </div>
+            </div>
+            <div class="success" id="successMsg"></div>
+        </form>
+    </div>
 </div>
 
 <script>
-    // Product Data
     const products = {
         "ATK": [
             "NBP1.0-2.45-0H", "NBP1.0-3-0H", "NBP1.0-3-5H", "NBP1.0-3-7H", "NBP1.0-3-8H", 
@@ -135,55 +203,53 @@
     };
 
     function updateProducts() {
-        const brandSelect = document.getElementById("brand");
+        const brand = document.getElementById("brand").value;
         const itemSelect = document.getElementById("items");
-        const selectedBrand = brandSelect.value;
-
-        // Clear previous options
         itemSelect.innerHTML = '<option value="">-- Select Product --</option>';
 
-        if (selectedBrand && products[selectedBrand]) {
-            products[selectedBrand].forEach(product => {
-                let option = document.createElement("option");
-                option.value = product;
-                option.text = product;
-                itemSelect.appendChild(option);
+        if (brand && products[brand]) {
+            products[brand].forEach(p => {
+                let opt = document.createElement("option");
+                opt.value = p; opt.text = p;
+                itemSelect.appendChild(opt);
             });
-        } else {
-            itemSelect.innerHTML = '<option value="">-- Select Brand First --</option>';
         }
     }
 
-    // Form Submission Logic
-    const scriptURL = "YOUR_APPS_SCRIPT_URL";
-    const form = document.getElementById("contactForm");
+    const scriptURL = "YOUR_APPS_SCRIPT_URL"; // Google Script Link ပြန်ထည့်ပါ
+    const form = document.getElementById("partnerForm");
     const successMsg = document.getElementById("successMsg");
 
     form.addEventListener("submit", e => {
         e.preventDefault();
         successMsg.style.display = "block";
-        successMsg.innerHTML = "⏳ Sending...";
-        
-        const data = {
+        successMsg.style.background = "#fff3cd";
+        successMsg.style.color = "#856404";
+        successMsg.innerHTML = "⏳ Processing...";
+
+        const formData = {
             name: document.getElementById("name").value,
             phone: document.getElementById("phone").value,
+            type: document.getElementById("customerType").value,
             brand: document.getElementById("brand").value,
             item: document.getElementById("items").value,
             address: document.getElementById("address").value,
             message: document.getElementById("message").value
         };
 
-        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data)})
-            .then(() => {
-                successMsg.style.background = "#d4edda";
-                successMsg.innerHTML = "✅ Submitted Successfully!";
-                form.reset();
-                updateProducts(); // Reset item dropdown
-            })
-            .catch(error => {
-                successMsg.style.background = "#f8d7da";
-                successMsg.innerHTML = "❌ Error occurred.";
-            });
+        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(formData)})
+        .then(() => {
+            successMsg.style.background = "#d4edda";
+            successMsg.style.color = "#155724";
+            successMsg.innerHTML = "✅ registration successful!";
+            form.reset();
+            updateProducts();
+        })
+        .catch(() => {
+            successMsg.style.background = "#f8d7da";
+            successMsg.style.color = "#721c24";
+            successMsg.innerHTML = "❌ Error. Please try again.";
+        });
     });
 </script>
 
